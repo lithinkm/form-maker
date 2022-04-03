@@ -4,8 +4,8 @@ php artisan migrate
 Step 2: : 
 php artisan db:seed --class=AdminsTableSeeder
 
-Step 2: : 
-php artisan db:seed --class=AdminsTableSeeder
+Step 3:
+Find form-maker\database\seeders\AdminsTableSeeder.php for user credentials
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
