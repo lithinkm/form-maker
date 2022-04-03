@@ -56,7 +56,7 @@ class FormController extends Controller
                 return redirect()->back()->with('message', 'Something went wrong');
             }
         } catch (\Exception  $e) {
-            print_R($e->getMessage()); exit;
+            // print_R($e->getMessage()); exit;
             return redirect()->back()->with('message', 'Something went wrong.');
         }
 
@@ -68,7 +68,7 @@ class FormController extends Controller
             $form->delete();
             return redirect()->back()->with('message', 'Form deleted successfully');
         } catch (\Exception  $e) {
-            print_R($e->getMessage());exit;
+            // print_R($e->getMessage());exit;
             return redirect()->back()->with('message', 'Could not delete');
         }
 

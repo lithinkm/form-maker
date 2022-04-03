@@ -2,12 +2,12 @@
 @section('content')
     <section class="eats-wrapper relative w-11/12 lg:justify-center mx-auto">
         @if (session()->has('message'))
-            <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
+            <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 alert" role="alert">
                 <p style="color:red">{{ session()->get('message') }}</p>
             </div>
         @endif
         @if ($errors->any())
-            <div class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3" role="alert">
+            <div class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3 alert" role="alert">
                 <p style="colot:red">{{ implode('', $errors->all(':message')) }}</p>
             </div>
         @endif
@@ -310,63 +310,13 @@
     $(document).ready(function() {
         $(".add_button").on('click', addInput);
     });
-
-    function customValidation() {
-        var display_name_err = false;
-        var field_name_err = false;
-        var upload_doc = false;
-        var custom_arr = [];
-        var file_arr = [];
-        $('body').find('input[name="display_name[]"]').each(function() {
-            if ($(this).val() == '') {
-                display_name_err = true;
-                $(this).css('border-color', 'red');
-            }
-        })
-
-        $('body').find('input[name="field_name[]"]').each(function() {
-            if ($(this).val() == '') {
-                field_name_err = true;
-                $(this).css('border-color', 'red');
-            }
-        });
-
-        $('body').find('input[name="field_length[]"]').each(function() {
-            if ($(this).val() == '') {
-                $(this).val(100);
-            }
-        });
-
-        if ($('#upload_doc').val() == '') {
-            upload_doc = true;
-        }
-
-        if (display_name_err == true) {
-            custom_arr.push("Please enter display name!<br>");
-        }
-
-        if (field_name_err == true) {
-            custom_arr.push("Please enter field name!<br>");
-        }
-        if (upload_doc == true) {
-            file_arr.push("Please upload file!<br>");
-        }
-        if (custom_arr.length == 0 && file_arr.length == 0) {
-            $('.custom_field_err').html('');
-            return true;
-        } else {
-            $('.custom_field_err').html('');
-            $('.custom_file_err').html('');
-            $.each(custom_arr, function(index, value) {
-                $('.custom_field_err').append(value);
-            });
-            $.each(file_arr, function(index, value) {
-                $('.custom_file_err').append(value);
-            });
-
-            return false;
-        }
-    }
 </script>
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('.alert').html('');
+        }, 3000);
+    });
+    </script>
 @section('scripts')
 @endsection
