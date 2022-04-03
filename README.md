@@ -1,4 +1,4 @@
-The project is for creating dynamic forms from admin side for public users. 
+The project is intended for creating dynamic forms from admin side for public users and storing the user data. 
 
 Steps required for installation after downloading repository
 
