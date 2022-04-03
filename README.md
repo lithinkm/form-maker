@@ -1,14 +1,14 @@
+**FormMaker**
+
 The project is intended for creating dynamic forms from admin side for public users and storing the user data. 
 
 Steps required for installation after downloading repository
 
-Step 1 (optional): 
-php artisan composer:update
+Step 1 (optional): **php artisan composer:update**
 
-Step 2 : 
-php artisan migrate
+Step 2 : **php artisan migrate**
 
-Step 3: php artisan db:seed --class=AdminsTableSeeder
+Step 3: **php artisan db:seed --class=AdminsTableSeeder**
 
 Step 4: Goto **form-maker\database\seeders\AdminsTableSeeder.php** file for user credentials
 
