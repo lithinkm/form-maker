@@ -94,7 +94,7 @@
                                                             <div class="form-group col-md-4 mb-0">
                                                                 <input
                                                                     class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                                    type="text" name="length[]"
+                                                                    type="number" name="length[]"
                                                                     value="{{ $item->length }}" placeholder="Length"
                                                                     id="length" />
                                                                 <input type="hidden" name="option[]" value=""
@@ -163,7 +163,7 @@
                                                     <div class="form-group col-md-4 mb-0">
                                                         <input
                                                             class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                            type="text" name="length[]" value="" placeholder="Length"
+                                                            type="number" name="length[]" value="" placeholder="Length"
                                                             id="length" />
                                                     </div>
                                                 </div>
@@ -285,7 +285,7 @@
                 x + '","selectdiv' + x + '","' + x +
                 '")> <option value="text">Text</option> <option value="email">Email</option><option value="mobile">Number</option> <option value="date">Date</option> <option value="select">Select</option> </select> </div> </div> <div class="flex mb-2"> <div class="form-group col-md-4"> <input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="display_name[]" value="" placeholder="Label Name" />  </div> </div> <div id="textdiv' +
                 x +
-                '"> <div class="flex mb-2"> <div class="form-group col-md-4"> <input  class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  type="text" name="placeholder[]" value="" placeholder="Place Holder" id="placeholder"/> </div> </div> <div class="flex mb-2"> <div class="form-group col-md-4 mb-0"><input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="length[]" value=""placeholder="Length" id="length" /></div></div></div><div id="selectdiv' +
+                '"> <div class="flex mb-2"> <div class="form-group col-md-4"> <input  class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  type="text" name="placeholder[]" value="" placeholder="Place Holder" id="placeholder"/> </div> </div> <div class="flex mb-2"> <div class="form-group col-md-4 mb-0"><input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" name="length[]" value=""placeholder="Length" id="length" /></div></div></div><div id="selectdiv' +
                 x +
                 '" style="display: none;"><labelclass="flex items-center tracking-wide text-gray-700 text-base font-bold mb-1" for="grid-last-name" required>Add options(Comma saparated)</label></p><div class="flex mb-1"><div class="form-group col-md-4"><input class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="option[]" value="" placeholder="Option" id="Option"/></div></div></div></div>'; //New input field html
             x++; //Increment field counter

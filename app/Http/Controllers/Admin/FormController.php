@@ -26,34 +26,38 @@ class FormController extends Controller
                 $form = new Form();
                 $form->code = time() . rand(111, 999);
             }
-            $form->name = $request->name;
-            if($form->save()){
-                if($request->id){
-                    $field = Field::where('form',$form->id)->delete();
-                }
-                for($x=0;$x<count($request->type);$x++){
-                    $field = new Field();
-                    $field->form = $form->id;
-                    $field->type = $request->type[$x];
-                    $field->label = $request->display_name[$x];
-                    if($request->type[$x] != 'select'){
-                        $field->placeholder = $request->placeholder[$x];
-                        $field->length = $request->length[$x];
+            if($request->type[0]!='' && isset($request->name)){
+                $form->name = $request->name;
+                if($form->save()){
+                    if($request->id){
+                        $field = Field::where('form',$form->id)->delete();
                     }
-                    $field->save();
-                    if($request->type[$x] == 'select'){
-                        $option = new Option();
-                        $option->field = $field->id;
-                        $option->name = $request->option[$x];
-                        $option->save();
+                    for($x=0;$x<count($request->type);$x++){
+                        $field = new Field();
+                        $field->form = $form->id;
+                        $field->type = $request->type[$x];
+                        $field->label = $request->display_name[$x];
+                        if($request->type[$x] != 'select'){
+                            $field->placeholder = $request->placeholder[$x];
+                            $field->length = $request->length[$x];
+                        }
+                        $field->save();
+                        if($request->type[$x] == 'select'){
+                            $option = new Option();
+                            $option->field = $field->id;
+                            $option->name = $request->option[$x];
+                            $option->save();
+                        }
                     }
+                    if($request->id){
+                        return redirect('admin/forms')->with('message', 'Form updated successfully');
+                    }
+                    return redirect()->back()->with('message', 'Form added successfully');
+                }else{
+                    return redirect()->back()->with('message', 'Something went wrong');
                 }
-                if($request->id){
-                    return redirect('admin/forms')->with('message', 'Form updated successfully');
-                }
-                return redirect()->back()->with('message', 'Form added successfully');
             }else{
-                return redirect()->back()->with('message', 'Something went wrong');
+                return redirect()->back()->with('message', 'Please fill all the fields');
             }
         } catch (\Exception  $e) {
             // print_R($e->getMessage()); exit;
